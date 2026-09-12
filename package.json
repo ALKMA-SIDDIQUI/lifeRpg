@@ -4,6 +4,7 @@
   "private": true,
   "description": "LIFE RPG — Turn Your Real Life Into A Game",
   "scripts": {
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",
     "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"magenta,cyan\" \"npm run dev:backend\" \"npm run dev:frontend\"",
@@ -12,6 +13,17 @@
     "test": "cd backend && npm test",
     "db:migrate": "cd backend && npm run db:migrate",
     "db:init": "cd backend && npm run db:init"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^2.3.0",
+    "pg": "^8.13.1"
   },
   "devDependencies": {
     "concurrently": "^9.2.4"

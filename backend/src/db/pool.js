@@ -9,7 +9,7 @@ const useSsl = process.env.DATABASE_SSL === 'true' || isSupabase;
 const pool = new Pool({
   connectionString,
   ssl: useSsl ? { rejectUnauthorized: false } : false,
-  max: 20,
+  max: process.env.VERCEL ? 5 : 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 15000,
 });
