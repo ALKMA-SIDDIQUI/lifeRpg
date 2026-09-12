@@ -54,6 +54,7 @@ try {
 }
 
 
+
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(uploadsDir));
@@ -115,8 +116,9 @@ async function startServer() {
   }
 }
 
-if (require.main === module && process.env.NODE_ENV !== 'test') {
+if ((require.main === module || !process.env.VERCEL) && process.env.NODE_ENV !== 'test') {
   startServer();
 }
+
 
 module.exports = { app, startServer };
