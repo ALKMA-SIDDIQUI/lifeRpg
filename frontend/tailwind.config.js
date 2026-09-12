@@ -1,0 +1,117 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        obsidian: {
+          950: '#06080C',
+          900: '#090C10',
+          850: '#0D1117',
+          800: '#12161F',
+          750: '#161B26',
+          700: '#1C2331',
+          600: '#252F42',
+          border: 'rgba(255, 255, 255, 0.08)',
+          borderAmber: 'rgba(245, 158, 11, 0.25)',
+          borderEmerald: 'rgba(16, 185, 129, 0.25)',
+          borderCyan: 'rgba(6, 182, 212, 0.25)',
+        },
+        ascension: {
+          amber: '#F59E0B',
+          amberGlow: '#FBBF24',
+          amberDark: '#D97706',
+          emerald: '#10B981',
+          emeraldGlow: '#34D399',
+          emeraldDark: '#059669',
+          cyan: '#06B6D4',
+          cyanGlow: '#22D3EE',
+          cyanDark: '#0891B2',
+          gold: '#F59E0B',
+        },
+        cyber: {
+          dark: '#090C10',
+          darker: '#06080C',
+          card: '#0D1117',
+          cardHover: '#161B26',
+          border: 'rgba(255, 255, 255, 0.09)',
+          cyan: '#06B6D4',
+          neonBlue: '#0284C7',
+          purple: '#D97706', // remapped from purple to amber/gold
+          violet: '#B45309',
+          pink: '#F59E0B',
+          magenta: '#FBBF24',
+          gold: '#F59E0B',
+          amber: '#F59E0B',
+          emerald: '#10B981',
+          crimson: '#EF4444',
+        },
+        glass: {
+          light: 'rgba(13, 17, 23, 0.85)',
+          lightBorder: 'rgba(245, 158, 11, 0.2)',
+          lightHover: 'rgba(22, 27, 38, 0.95)',
+          dark: 'rgba(9, 12, 16, 0.90)',
+          darkBorder: 'rgba(245, 158, 11, 0.22)',
+          darkHover: 'rgba(18, 22, 31, 0.95)',
+        },
+        rpg: {
+          icyBlue: '#CFFAFE',
+          paleLavender: '#FEF3C7',
+          electricBlue: '#F59E0B',
+          skyGlow: '#FBBF24',
+          deepNavy: '#090C10',
+          softPurple: '#D97706',
+        }
+      },
+      fontFamily: {
+        mono: ['JetBrains Mono', 'monospace'],
+        cinzel: ['Cinzel', 'serif'],
+        orbitron: ['Orbitron', 'sans-serif'],
+        rajdhani: ['Rajdhani', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        caveat: ['Caveat', 'cursive'],
+      },
+      boxShadow: {
+        'hud-obsidian': '0 12px 40px 0 rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08) inset',
+        'hud-amber': '0 0 25px rgba(245, 158, 11, 0.3), 0 0 0 1px rgba(245, 158, 11, 0.45) inset',
+        'hud-emerald': '0 0 25px rgba(16, 185, 129, 0.3), 0 0 0 1px rgba(16, 185, 129, 0.45) inset',
+        'hud-cyan': '0 0 25px rgba(6, 182, 212, 0.3), 0 0 0 1px rgba(6, 182, 212, 0.45) inset',
+        'target-glass': '0 12px 36px -4px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08) inset',
+        'target-card': '0 10px 30px -4px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08) inset',
+        'target-pill': '0 4px 18px -2px rgba(245, 158, 11, 0.35)',
+        'glow-cyan': '0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(6, 182, 212, 0.15)',
+        'glow-cyan-sm': '0 0 10px rgba(6, 182, 212, 0.3)',
+        'glow-purple': '0 0 20px rgba(245, 158, 11, 0.4), 0 0 40px rgba(245, 158, 11, 0.15)',
+        'glow-purple-sm': '0 0 10px rgba(245, 158, 11, 0.3)',
+        'glow-gold': '0 0 20px rgba(245, 158, 11, 0.45), 0 0 40px rgba(245, 158, 11, 0.18)',
+        'glow-gold-sm': '0 0 10px rgba(245, 158, 11, 0.35)',
+        'glow-amber': '0 0 20px rgba(245, 158, 11, 0.45), 0 0 40px rgba(245, 158, 11, 0.18)',
+        'glow-emerald': '0 0 20px rgba(16, 185, 129, 0.4), 0 0 40px rgba(16, 185, 129, 0.15)',
+        'glass-light': '0 10px 30px -5px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08) inset',
+        'glass-dark': '0 12px 36px -4px rgba(0, 0, 0, 0.85), 0 0 20px rgba(245, 158, 11, 0.08), 0 0 0 1px rgba(245, 158, 11, 0.18) inset',
+      },
+      animation: {
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'float-slow': 'float 9s ease-in-out infinite',
+        'glow-pulse': 'glowPulse 2.5s ease-in-out infinite alternate',
+        'spin-slow': 'spin 14s linear infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        glowPulse: {
+          '0%': { opacity: '0.4' },
+          '100%': { opacity: '0.9' },
+        }
+      }
+    },
+  },
+  plugins: [],
+};

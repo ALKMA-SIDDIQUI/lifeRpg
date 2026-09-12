@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  html.dark {
+    --bg-body: #090C10;
+    --bg-gradient: 
+      radial-gradient(ellipse at 50% -10%, rgba(245, 158, 11, 0.08) 0%, transparent 60%),
+      radial-gradient(circle at 15% 25%, rgba(6, 182, 212, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 50% 70%, rgba(245, 158, 11, 0.03) 0%, transparent 60%),
+      linear-gradient(180deg, #06080C 0%, #090C10 30%, #0D1117 60%, #06080C 100%);
+    --card-bg: rgba(13, 17, 23, 0.88);
+    --card-hover-bg: rgba(22, 27, 38, 0.95);
+    --card-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+    --border-color: rgba(255, 255, 255, 0.09);
+    --border-highlight: rgba(245, 158, 11, 0.45);
+    --text-primary: #F3F4F6;
+    --text-secondary: #9CA3AF;
+    --text-muted: #6B7280;
+    --accent-amber: #F59E0B;
+    --accent-emerald: #10B981;
+    --accent-cyan: #06B6D4;
+    --accent-glow: rgba(245, 158, 11, 0.25);
+    --scrollbar-track: #06080C;
+    --scrollbar-thumb: #1C2331;
+  }
+
+  body {
+    background-color: var(--bg-body);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 2px;
+    border: 1px solid rgba(245, 158, 11, 0.15);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #252F42;
+    border-color: rgba(245, 158, 11, 0.35);
+  }
+}
+
+@layer components {
+  /* Faint Tactical HUD Grid Texture */
+  .hud-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Sharp-Edged Obsidian RPG HUD Panels with subtle bevel */
+  .rpg-panel,
+  .target-card,
+  .cyber-card,
+  .glass-panel {
+    background: rgba(13, 17, 23, 0.90);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    border-radius: 0.375rem; /* Sharp edges */
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Interactive Beveled Panel */
+  .rpg-panel-interactive,
+  .target-card-interactive,
+  .cyber-card-interactive,
+  .glass-panel-interactive {
+    @apply rpg-panel cursor-pointer;
+  }
+  .rpg-panel-interactive:hover,
+  .target-card-interactive:hover,
+  .cyber-card-interactive:hover,
+  .glass-panel-interactive:hover {
+    border-color: rgba(245, 158, 11, 0.45);
+    box-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.9), 0 0 20px rgba(245, 158, 11, 0.15), 0 0 0 1px rgba(245, 158, 11, 0.3) inset;
+    transform: translateY(-2px);
+  }
+
+  /* Sharp HUD Pill / Badge */
+  .glass-pill,
+  .rpg-badge {
+    background: rgba(18, 22, 31, 0.85);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .cyber-glass {
+    background: rgba(13, 17, 23, 0.90);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.375rem;
+  }
+
+  /* Primary Action Button: Electric Amber */
+  .rpg-btn-primary,
+  .target-btn-gradient,
+  .cyber-btn-primary {
+    @apply relative inline-flex items-center justify-center px-5 py-2.5 rounded-md font-orbitron font-black text-xs uppercase tracking-wider text-black bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 shadow-md shadow-amber-500/20 hover:brightness-110 hover:shadow-lg hover:shadow-amber-500/30 active:scale-95 transition-all duration-200;
+  }
+
+  /* Secondary Button: Sharp Obsidian */
+  .rpg-btn-secondary,
+  .target-btn-glass,
+  .cyber-btn-secondary {
+    @apply relative inline-flex items-center justify-center px-4 py-2 rounded-md font-inter font-bold text-xs text-slate-200 bg-[#12161F] hover:bg-[#1C2331] border border-white/10 hover:border-amber-500/40 shadow-sm active:scale-95 transition-all duration-200;
+  }
+
+  /* Emerald Completion Button */
+  .rpg-btn-emerald {
+    @apply relative inline-flex items-center justify-center px-4 py-2 rounded-md font-orbitron font-bold text-xs uppercase tracking-wider text-black bg-emerald-500 hover:bg-emerald-400 shadow-md shadow-emerald-500/25 active:scale-95 transition-all duration-200;
+  }
+
+  .cyber-btn-danger {
+    @apply relative inline-flex items-center justify-center px-4 py-2 font-orbitron font-bold tracking-wider text-white uppercase transition-all duration-200 rounded-md bg-rose-600/90 hover:bg-rose-600 active:scale-95 shadow-sm border border-rose-500/30;
+  }
+
+  /* Glowing Accent Borders */
+  .glow-border-amber {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+  }
+  .glow-border-emerald {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+  }
+  .glow-border-cyan {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+  }
+}
+
+/* Subtle amber scanline */
+@keyframes amberScan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.holo-line {
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.6), transparent);
+  animation: amberScan 4s linear infinite;
+  pointer-events: none;
+}

@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+**/node_modules/
+.pnp
+.pnp.js
+
+# Build Outputs
+dist/
+**/dist/
+build/
+**/build/
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Database local data & logs
+backend/local_pg_data/
+backend/local_pg.log
+backend/logfile
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+
+# Temp & debug files
+dom_dump.html
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
