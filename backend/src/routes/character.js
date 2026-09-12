@@ -202,10 +202,17 @@ const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
 
-const avatarsDir = path.resolve(__dirname, '../../uploads/avatars');
-if (!fs.existsSync(avatarsDir)) {
-  fs.mkdirSync(avatarsDir, { recursive: true });
+const avatarsDir = process.env.VERCEL
+  ? path.join('/tmp', 'uploads', 'avatars')
+  : path.resolve(__dirname, '../../uploads/avatars');
+try {
+  if (!fs.existsSync(avatarsDir)) {
+    fs.mkdirSync(avatarsDir, { recursive: true });
+  }
+} catch (err) {
+  console.warn('[Storage] Upload directory note:', err.message);
 }
+
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
