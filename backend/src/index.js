@@ -121,4 +121,7 @@ if ((require.main === module || !process.env.VERCEL) && process.env.NODE_ENV !==
 }
 
 
-module.exports = { app, startServer };
+app.app = app;
+app.startServer = startServer;
+module.exports = app;
+

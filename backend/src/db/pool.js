@@ -1,7 +1,9 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5433/liferpg';
+const SUPABASE_CLOUD_URL = 'postgresql://postgres.zitntzaccncimtvsbaqw:Alkma%408176%2600@aws-0-ap-south-1.pooler.supabase.com:5432/postgres';
+const connectionString = process.env.DATABASE_URL || (process.env.VERCEL ? SUPABASE_CLOUD_URL : 'postgresql://postgres:postgres@localhost:5433/liferpg');
+
 
 const isSupabase = connectionString.includes('supabase.co') || connectionString.includes('supabase.com') || connectionString.includes('pooler.supabase');
 const useSsl = process.env.DATABASE_SSL === 'true' || isSupabase;
